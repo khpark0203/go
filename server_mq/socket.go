@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io"
 	"log"
 	"net"
 )
@@ -33,10 +32,6 @@ func ConnHandler(conn net.Conn) {
     for {
         n, err := conn.Read(recvBuf)
         if nil != err {
-            if io.EOF == err {
-                log.Println(err)
-                return
-            }
             log.Println(err)
             return
         }
