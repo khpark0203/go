@@ -1,2 +1,2 @@
-# go
+# Go
 Golang file practice
