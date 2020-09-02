@@ -31,9 +31,9 @@ func main() {
         data := make(map[string]interface{})
         data["name"] = "kim"
         data["age"] = 25
-    
+
         doc, _ := json.Marshal(data)
-    
+
         conn.Write(doc)
         time.Sleep(time.Second * 2)
     }

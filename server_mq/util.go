@@ -51,7 +51,7 @@ func RecvMessageQ(loop int, Callback func(msg RecvMsg)) {
     for {
         mq, _ := posixMQ.NewMessageQueue(RECV_MESSAGE_PATH, oflag, 0666, nil)
         defer mq.Close()
-    
+
         rxdata, _, _ := mq.Receive()
         Callback(MsgCpy(rxdata))
 
