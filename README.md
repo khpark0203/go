@@ -1,2 +1,2 @@
 # Go
-Golang file practice
+Golang module repository
