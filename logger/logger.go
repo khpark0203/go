@@ -7,6 +7,8 @@ import (
 )
 
 // Prelog struct.
+// DateView: If true, show log with date.
+// Prefix: Log have prefix "PREFIX: ".
 type Prelog struct {
     DateView bool
     Prefix	 string
@@ -17,7 +19,7 @@ func (l *Prelog) SetPrefix(s string) {
     l.Prefix = s
 }
 
-// RemovePrefix init the log user's prefix
+// RemovePrefix init the log user's prefix.
 func (l *Prelog) RemovePrefix() {
     l.Prefix = ""
 }
@@ -31,7 +33,8 @@ func (l *Prelog) printPrefix() {
     if l.DateView == true {
         t := time.Now()
         fmt.Printf("[%d/%d/%d %02d:%02d:%02d] ",
-                   t.Year(), t.Month(), t.Day(), t.Hour(), t.Minute(), t.Second())
+                   t.Year(), t.Month(), t.Day(),
+                   t.Hour(), t.Minute(), t.Second())
     }
 
     if l.Prefix != "" {
