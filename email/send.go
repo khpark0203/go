@@ -51,6 +51,10 @@ func (s Sender) Send() error {
 		return err
 	}
 
+	if err := client.Mail(s.Email); err != nil {
+		return err
+	}
+
 	for _, to := range s.To {
 		if err := client.Rcpt(to); err != nil {
 			return err
