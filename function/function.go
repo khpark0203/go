@@ -5,10 +5,7 @@ import (
 )
 
 func Line() int {
-	pc := make([]uintptr, 1)
-	runtime.Callers(2, pc)
-	f := runtime.FuncForPC(pc[0])
-	_, line := f.FileLine(pc[0])
+	_, _, line, _ := runtime.Caller(0)
 	return line
 }
 
@@ -20,9 +17,6 @@ func Name() string {
 }
 
 func Path() string {
-	pc := make([]uintptr, 1)
-	runtime.Callers(2, pc)
-	f := runtime.FuncForPC(pc[0])
-	file, _ := f.FileLine(pc[0])
-	return file
+	_, path, _, _ := runtime.Caller(0)
+	return path
 }
